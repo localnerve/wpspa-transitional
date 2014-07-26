@@ -1,4 +1,5 @@
 wpspa-transitional
 ==================
 
-WPSPA transitional support IE8+
+WPSPA transitional is WPSPA techniques w/support for IE8+. Coming Soon!
+
