@@ -1,0 +1,72 @@
+{
+  "app": {
+    "hostname": "localhost",
+    "port": 9000
+  },
+
+  "mail": {
+    "service": "Mandrill",
+    "mailTo": "alex@localnerve.com",
+    "mailFrom": "website@localnerve.com",
+    "transport": "SMTP",
+    "subject": "Contact Form Submission"
+  },
+
+  "proxy": {
+    "hostname": "localhost",
+    "port": 9010,
+    "pattern": "^\\/api\\/"
+  },
+
+  "staticBase": ".",
+  "staticAge": 0,
+
+  "loggerFormat": "dev",
+
+  "rewriteForbidden": "^/(server|node_modules|Procfile$|app.js$|package.json$) [F NC L]",
+
+  "scriptsDir": "scripts",
+  "imagesDir": "images",
+  "fontsDir": "fonts",
+
+  "four04File": "404.html",
+  "five03File": "503.html",
+  "faviconFile": "favicon.ico",
+  "robotsFile": "robots.txt",
+
+  "maintenance": false,
+  "maintenanceHeaders": {
+    "Retry-After": 14400
+  },
+
+  "keys": {
+    "htmlSnapshots": "html-snapshots",
+    "routes": "app-routes",
+    "atf": "atf-content"
+  },
+
+  "workers": {
+    "htmlSnapshots": {
+      "snapshotsDir": "snapshots",
+      "options": {
+        "input": "array",
+        "outputDirClean": true,
+        "timeout": 30000,
+        "selector": "#contact-form",
+        "phantomjs": "phantomjs",
+        "processLimit": 1
+      }
+    }
+  },
+
+  "common": {
+    "customFieldsParam": "custom_fields=_wpspa_meta_description%2C_wpspa_page_title%2C_wpspa_prefetch%2Clinks"
+  },
+
+  "atf": {
+    "navigation": "/api/wpspa/menu",
+    "business": "/api/get_category_posts/?slug=business",
+    "home": "/api/get_category_posts/?slug=home&<%= self.common.customFieldsParam %>",
+    "contact": "/api/get_category_posts/?slug=contact&<%= self.common.customFieldsParam %>"
+  }  
+}

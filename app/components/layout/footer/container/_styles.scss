@@ -1,0 +1,69 @@
+
+.footer-container {
+  @include outerRow();
+}
+.footer-area {
+  @include background($klm-2);
+  padding: emCalc(20) emCalc(20);
+  text-align: left;
+  @include clearfix();
+  @include breakpoint(very-small) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @include breakpoint($panel-breakpoint) {
+    @include single-box-shadow(rgba($primary-3, 0.6), 0, 20px, 20px, -20px, true);
+  }  
+}
+
+.contact-info {
+  @include column($totalColumns / 2);
+}
+.action-feature {
+  @include column($totalColumns / 2);
+  @include breakpoint(small) {
+    padding-bottom: emCalc(10);
+  }
+  @include breakpoint(super-small) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.copyright {
+  @include column($totalColumns);
+  @extend %footer-text-respond;
+}
+
+.action-picture {
+  border: 2px solid black;
+  @extend .home-ln-action;
+  @include clearfix();
+
+  margin: 0 auto;
+  float: right;
+  @include breakpoint(small) {
+    float: none;
+  }
+}
+.action-feature .action-picture {
+  @include breakpoint(super-small) {
+    width: 300px;
+    background-position: 50% 0
+  }  
+}
+
+.lbiz-block {
+  margin: 0px;
+}
+.lbiz-item-block {
+  display: block;
+  padding: emCalc(10) 0;
+}
+.lbiz-item {
+  display: block;
+  line-height: 1.2;
+  @extend %footer-text-respond;
+}
+[itemtype='http://schema.org/LocalBusiness'] [itemprop='name'], [itemtype='http://schema.org/LocalBusiness'] [itemprop='email'] {
+  font-weight: bold;
+}

@@ -1,0 +1,78 @@
+$nav-star-scale: 0.60;
+
+.nav-toggle {
+  width: $star-width * $nav-star-scale;
+  height: $star-height * $nav-star-scale;
+  margin-right: ($star-width * $nav-star-scale / 2) * -1;
+  float: right;
+  position: relative;
+  z-index: $modal-z-base+1;
+}
+
+$menu-script-space: 10px;
+.menu-script {
+  background: url($menu-script-data) $site-white no-repeat;
+  float: right;
+  width: $menu-script-width;
+  height: $menu-script-height;
+  margin-right: ($menu-script-width + $menu-script-space) * -1;
+}
+.active-off-canvas .menu-script {
+  display: none;
+}
+
+.nav-stars {
+  float: left;
+  margin-top: -40px;
+}
+.nav-stars li {
+  position: absolute;
+  list-style: none;
+
+  // stars also have .bi-logo-star from pre.css
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+}
+.nav-stars li:nth-child(1) {
+  width: $star-width * ($nav-star-scale/1.5);
+  height: $star-height * ($nav-star-scale/1.5);
+  margin-left: 50%;
+}
+.nav-stars li:nth-child(2) {
+  width: $star-width * ($nav-star-scale/2);
+  height: $star-height * ($nav-star-scale/2);
+  margin-left: 75%;
+  margin-top: -20px;
+}
+
+//
+// vertical nav specializations
+
+.nav-container {
+  padding-bottom: 17px;
+}
+
+.nav-container .nav-bar.vertical, .nav-container h4 {
+  width: 82%;
+  margin: 5px auto;
+}
+
+.nav-container .nav-bar.vertical > li {
+  // vendor override
+  border-right: none;  
+  border-bottom: 1px solid lighten($site-black, 30%);
+}
+
+.nav-container .nav-bar.vertical > li:nth-last-child(2) {
+  border-bottom: none;
+}
+
+.nav-container .nav-bar.vertical > li > a:first-child {
+  font-weight: normal;
+  line-height: 50px;  
+}

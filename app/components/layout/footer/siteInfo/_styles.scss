@@ -1,0 +1,16 @@
+.site-info {
+  margin: 0 auto;
+  max-width: $rowWidth;
+  padding: 30px 0;
+  width: 100%;
+
+  color: $site-white;
+  background: $kuler-mono-4;
+
+  @include single-box-shadow(#000, 0, 20px, 20px, -20px, true);
+}
+
+.site-info a {
+  color: $site-white;
+  @extend %footer-text-respond;
+}

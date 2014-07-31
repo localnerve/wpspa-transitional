@@ -1,0 +1,75 @@
+@mixin doalign($direction, $width) {
+  $opposite: right;
+  @if ($direction == right) {
+    $opposite: left;
+  }
+  //border: 1px solid #000;
+  margin-#{$opposite}: 10px;
+  margin-bottom: 15px;
+  float: $direction;
+  @include breakpoint(super-small) {
+    float: none;
+    width: $width;
+    display: block;
+    margin: 15px auto;
+  }  
+}
+
+.page-panel {
+  @extend %page-content-panel;
+  background: $site-white;
+}
+
+//
+// List styles
+$list-margin-left: 15px;
+.steps {
+  counter-reset: my-counter;
+}
+.checklist, .steps {
+  list-style: none;
+  margin-left: $list-margin-left;
+
+  @include breakpoint(very-small-super-small) {
+    margin-left: 0;
+  }
+}
+.steps li, .checklist li {
+  position: relative;
+  padding: 4px 0 10px 30px;
+}
+.steps li:before {
+  content: counter(my-counter);
+  counter-increment: my-counter;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: bold 36px/1 $bodyFontFamily;
+}
+.checklist li:before {
+  position: absolute;
+  left: 0;
+  top: 0;  
+  content: "\e606";
+  font: normal 26px/1 'icomoon';
+  text-transform: none;
+  speak: none;
+  line-height: 1
+}
+
+//
+// Wordpress styles
+
+.alignright {
+  // 209 is the width of the "medium" np content images
+  @include doalign(right, 209px);
+}
+
+.alignleft {
+  @include doalign(left, 100%);
+}
+
+.wp-caption-text {
+  text-align: center;
+  font-weight: bold;
+}

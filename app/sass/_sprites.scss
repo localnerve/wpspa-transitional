@@ -1,0 +1,21 @@
+// sprites.scss
+// This is where all the sprites are built
+
+// produce the home sprite
+$home-sprite-dimensions: true;
+$home-spacing: 10px;
+@import "home/*.png";
+@include all-home-sprites;
+
+// produce the vendor sprite
+$orbit-sprite-dimensions: true;
+$orbit-spacing: 10px;
+@import "foundation/orbit/*.png";
+@include all-orbit-sprites;
+
+// pause-black was its own sprite w/pause-play, so customize:
+@mixin orbit-play-black() {
+  @include orbit-sprite(pause-black);
+  // pause-black-y was -490, so + -40 from original = -530
+  background-position: 0 -530px;
+}

@@ -1,0 +1,12 @@
+//
+// Styles that must be parsed before the js can parse (even possibly can be parsed).
+//
+//
+@import "global-mixins";
+
+@import "logo-data";
+@import "splash";
+
+.js-logo-star, .bi-logo-star {
+  @extend %logo-star;
+}

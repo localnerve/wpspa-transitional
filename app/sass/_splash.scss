@@ -1,0 +1,19 @@
+html.splash {
+  height: 100%;
+}
+body.splash {
+  min-height: 100%;
+}
+
+.js .splash-container {
+  @include absolute-center-within-container(100%, 50%, visible);  
+}
+
+.js-splash-logo {
+  @extend %logo-300-image;
+}
+.js .splash-logo {
+  @extend %logo-300;
+  background-position: 50% 50%;
+  width: 100%;
+}

@@ -1,0 +1,121 @@
+@import "content/styles";
+@import "contact/styles";
+@import "social/styles";
+
+%page-left-first {
+  // column floats this left first
+  @include breakpoint(nav-fixed-med-range) {
+    padding-right: $columnGutter / 4;
+  }
+  @include breakpoint(small) {
+    padding-right: $columnGutter / 2;
+  }
+  @include breakpoint($panel-breakpoint) {
+    padding: 0;
+  }  
+}
+
+.page-content {  
+  @include column(8);
+  @extend %page-left-first;
+}
+
+%page-content-panel {
+  @extend %radius-panel;
+  margin: 15px auto;
+  padding: 15px;
+  border: {
+    color: $primary-2;
+    width: 1px;
+    style: solid;
+  };
+  @include box-shadow(0 1px 0 $shinyEdge inset);
+  @include box-shadow(rgba($primary-3, 0.6) 0 0 13px);
+
+  @include breakpoint($panel-breakpoint) {
+    border: none;
+    @include single-box-shadow(rgba($primary-3, 0.6), 0, 20px, 20px, -20px, true);
+    @include border-radius(0);
+    margin: 0 auto;
+  }
+}
+
+#post-content .contact-panel {
+  width: 90%;
+  @include breakpoint($panel-breakpoint) {
+    width: 100%;
+  }
+}
+
+#post-content .page-contact .contact-panel {
+  @extend %page-content-panel;
+  background: $site-white;
+}
+
+%page-sidebar {
+  @include column(4);
+  
+  // column floats this left last
+  @include breakpoint(nav-fixed-med-range) {
+    padding-left: $columnGutter / 4;
+  }
+  @include breakpoint(small) {
+    padding-left: $columnGutter / 2;
+  }
+  @include breakpoint($panel-breakpoint) {
+    padding: 0;
+  }  
+}
+
+.page-social {
+  @extend %grid-full;
+  @extend %page-left-first;
+}
+
+#post-content .page-contact {
+  @extend %grid-full;
+}
+
+#post-sidebar .page-contact {
+  @extend %page-sidebar;
+}
+
+//
+// single view page transitions
+//
+
+//
+// single page fade in
+//
+$single-page-fade-in-duration: 0.4s;
+$single-page-fade-in-start: 0;
+$single-page-fade-in-end: 1;
+
+@-webkit-keyframes single-fade-in {
+    0% { opacity: $single-page-fade-in-start; }
+  100% { opacity: $single-page-fade-in-end; }
+}
+@-moz-keyframes single-fade-in {
+    0% { opacity: $single-page-fade-in-start; }
+  100% { opacity: $single-page-fade-in-end; }
+}
+@-o-keyframes single-fade-in {
+    0% { opacity: $single-page-fade-in-start; }
+  100% { opacity: $single-page-fade-in-end; }
+}
+@-ms-keyframes single-fade-in {
+    0% { opacity: $single-page-fade-in-start; }
+  100% { opacity: $single-page-fade-in-end; }
+}
+@keyframes single-fade-in {
+    0% { opacity: $single-page-fade-in-start; }
+  100% { opacity: $single-page-fade-in-end; }
+}
+
+.single-page-fade-in {
+  -webkit-animation: single-fade-in $single-page-fade-in-duration;
+  -moz-animation: single-fade-in $single-page-fade-in-duration;
+  -o-animation: single-fade-in $single-page-fade-in-duration;
+  -ms-animation: single-fade-in $single-page-fade-in-duration;
+  animation: single-fade-in $single-page-fade-in-duration;
+}

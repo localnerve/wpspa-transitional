@@ -1,0 +1,31 @@
+<div id="<%= resultId %>" class="reveal-modal <%= modalSize %>">
+  <h2 class="big-decl">
+    Whoops! <span>:(</span>
+  </h2>
+  <p class="contact-result failure">
+    Our contact system is temporarily unavailable. We apologize for the inconvenience.
+  </p>
+  <p>
+    Please consider e-mailing your message to us directly:
+    <a href="mailto:<%= mailTo %>"><%= businessEmail %></a>    
+    <small class="mail-link-instructions">Click the email address above to email us directly.</small>
+  </p>
+  <p>
+    We really would love to hear from you!
+  </p>
+  <div class="phone-container">
+    <div class="phone-text">
+      <span class="icon-phone phone"></span>
+      <span class="phone"><%= businessPhone %></span>
+    </div>
+    <div class="phone-button">
+      <a data-bypass href="tel:<%= businessPhone %>">
+        <span class="icon-phone phone"></span>
+        <span class="phone"><%= businessPhone %></span>
+      </a>
+    </div>
+  </div>
+  <p>For reference, here was your message:</p>
+  <textarea class="form-message" readonly="true"><%- message %></textarea>  
+  <a class="close-reveal-modal">&#215;</a>  
+</div>

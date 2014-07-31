@@ -1,0 +1,120 @@
+$showcase-large-height: 342px;
+$orbit-large-height: 325px;
+
+.showcase {
+  min-height: $showcase-large-height;
+  @include breakpoint(nav-fixed) {
+    min-height: 0;
+  }
+}
+.slider-container {
+  @include column($totalColumns/($logo-division/2));
+  @include breakpoint(extra-small) {
+    padding: 0;
+  }
+}
+.showcase .slider-container {
+  @include breakpoint($panel-breakpoint) {
+    padding: 0;
+  }  
+}
+.js-slider-shadow {
+  @include box-shadow(rgba($primary-3, 0.6) 0 0 25px);
+}
+
+//
+// loading styles
+.lt-ie9 #featured-orbit {
+  @include old-spinner($orbit-large-height, $site-white);
+}
+.ie9 #featured-orbit {
+  @include old-spinner($orbit-large-height/2, $site-white);
+}
+.lt-ie9 #featured-orbit.orbit, .ie9 #featured-orbit.orbit {
+  background: none !important; 
+}
+#featured-orbit:not(.orbit) {
+  @include simple-spinner(120px, 60px, $mainColor, $site-black);
+  @include breakpoint(very-small) {
+    @include simple-spinner(60px, 60px, $mainColor, $site-black);
+  }  
+}
+#featured-orbit img { 
+  display: none; 
+}
+#featured-orbit.orbit img { 
+  display: block; 
+}
+
+//
+// slider feature styles
+
+#featured-orbit div {
+  // extra right for timer
+  padding: 10px 30px 10px 20px;
+}
+
+// spritesheet optimizations
+.slider-container {
+  .orbit-wrapper  {
+    span.rotator {
+      @extend .orbit-rotator-black;
+    }
+    span.mask {    
+      &.move {
+        @extend .orbit-timer-black;
+      }
+    }
+    span.pause {
+      @extend .orbit-pause-black;
+      &.active {
+        @include orbit-play-black();
+      }
+    }
+  }
+  .orbit-wrapper {
+    .slider-nav span.#{$defaultOpposite} {
+      @extend .orbit-#{$defaultOpposite}-arrow-small;
+    }
+    .slider-nav span.#{$defaultFloat} {
+      @extend .orbit-#{$defaultFloat}-arrow-small;
+    }
+  }
+}
+
+// general slider customizations
+#featured-orbit a.no-link {
+  cursor: default;
+}
+
+.slider-container .orbit {
+  @include breakpoint($panel-breakpoint) {
+    margin-bottom: 0;
+  }
+}
+
+.no-touch .orbit-wrapper {
+  .slider-nav span { @include opacity(0); @include single-transition(opacity, 400ms); }
+  &:hover .slider-nav span { @include opacity(1); }  
+}
+.touch .orbit-wrapper {
+  .slider-nav span { display: none; }
+  &:hover .slider-nav span { display: none; }
+}
+
+// important to keep the timer in the DOM for paint control
+.lt-ie9 .orbit-wrapper .timer {
+  visibility: hidden;
+}
+.orbit-wrapper .timer {
+  @include breakpoint(super-small) {
+    visibility: hidden;
+  }
+}
+
+.orbit-wrapper .orbit-caption {
+  font-size: 20px;
+  @include breakpoint(super-small) {
+    font-size: 14px;
+  }
+}

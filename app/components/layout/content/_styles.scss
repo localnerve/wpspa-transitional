@@ -1,0 +1,7 @@
+#content {
+  overflow: hidden;
+  margin-bottom: 17px;
+  @include breakpoint($panel-breakpoint) {
+    margin-bottom: 0;
+  }  
+}

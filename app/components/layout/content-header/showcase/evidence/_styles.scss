@@ -1,0 +1,41 @@
+$evidence-badge-hide: small;
+
+%evidence-badge {
+  @extend .home-badge;
+  min-width: 90px;
+  height: 105px; 
+}
+
+.evidence-badge {
+  @extend %evidence-badge;
+  // this assumes left floating, TODO fix
+  margin-right: 8px;
+
+  @include breakpoint($evidence-badge-hide) {
+    display: none;
+  }
+
+  @include breakpoint(medium-small) {
+    height: 90px;
+  }  
+}
+
+.evidence-content {
+  display: table;
+  @include breakpoint($evidence-badge-hide) {
+    display: block;
+  }
+}
+.evidence-content span, .evidence-content p {
+  width: 67%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 1.2;
+
+  @include breakpoint($evidence-badge-hide) {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

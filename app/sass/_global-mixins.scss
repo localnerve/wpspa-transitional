@@ -1,0 +1,130 @@
+//
+// global-mixins
+//
+// The mixins exposed to the container and application that are original
+// to the container itself (not vendor).
+//
+
+// -------------------------
+// breakpoint(point)
+// -------------------------
+// Takes one argument, the breakpoint
+// Accepted argument values (can be one of the following):
+//   large, medium, medium-portrait, medium-landscape, small, small-portrait, small-landscape, 
+//   very-small, very-small-portrait, very-small-landscape, super-small, super-small-portrait,
+//   super-small-landscape
+// These values are defined in container-settings.scss
+//
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media only screen and (min-width: $breakLargeMin) { @content; }
+  }
+  @else if $point == medium {
+    @media only screen and (max-width: $breakMediumMax) and (min-width: $breakMediumMin) { @content; }
+  }
+  @else if $point == medium-portrait {
+    @media screen and (orientation: portrait) and (max-width: $breakMediumPortraitMax) and (min-width: $breakMediumPortraitMin) { @content; }
+  }
+  @else if $point == medium-landscape {
+    @media screen and (orientation: landscape) and (max-width: $breakMediumLandscapeMax) and (min-width: $breakMediumLandscapeMin) { @content; }
+  }
+  @else if $point == medium-small {
+    @media only screen and (max-width: $breakMedSmallMax) { @content; }
+  }
+  @else if $point == nav-fixed {
+    @media only screen and (max-width: $breakFixedNavMax) { @content; }
+  }
+  @else if $point == nav-fixed-med-range {
+    @media screen and (max-width: $breakFixedNavMax) and (min-width: $breakSmallMax) { @content; }
+  }
+  @else if $point == small {
+    @media only screen and (max-width: $breakSmallMax) { @content; }
+  }
+  @else if $point == small-portrait {
+    @media screen and (orientation: portrait) and (max-width: $breakSmallPortraitMax) { @content; }
+  }
+  @else if $point == small-landscape {
+    @media screen and (orientation: landscape) and (max-width: $breakSmallLandscapeMax) { @content; }
+  }
+  @else if $point == very-small {
+    @media only screen and (max-width: $breakVerySmallMax) { @content; }
+  }
+  @else if $point == very-small-portrait {
+    @media only screen and (max-width: $breakVerySmallPortraitMax) { @content; }
+  }
+  @else if $point == very-small-landscape {
+    @media screen and (orientation: landscape) and (max-width: $breakVerySmallLandscapeMax) { @content; }
+  }
+  @elseif $point == very-small-super-small {
+    @media only screen and (max-width: $breakVerySmallSuperSmallMax) { @content; }
+  }
+  @else if $point == super-small {
+    @media only screen and (max-width: $breakSuperSmallMax) { @content; }
+  }
+  @else if $point == super-small-portrait {
+    @media screen and (orientation: portrait) and (max-width: $breakSuperSmallPortraitMax) { @content; }
+  }
+  @else if $point == super-small-landscape {
+    @media screen and (orientation: landscape) and (max-width: $breakSuperSmallLandscapeMax) { @content; }
+  }
+  @else if $point == super-small-extra-small {
+    @media only screen and (max-width: $breakSuperSmallExtraSmallMax) { @content; }
+  }
+  @else if $point == extra-small {
+    @media only screen and (max-width: $breakExtraSmallMax) { @content; }
+  }
+  @else if $point == extra-small-portrait {
+    @media screen and (orientation: portrait) and (max-width: $breakExtraSmallPortraitMax) { @content; }
+  }
+  @else if $point == extra-small-landscape {
+    @media screen and (orientation: landscape) and (max-width: $breakExtraSmallPortraitMax) { @content; }
+  }
+  @else {
+    @warn ILLEGAL ARGUMENT TO breakpoint;
+    @debug ILLEGAL ARGUMENT TO breakpoint;
+    @content;
+  }
+}
+
+// absolute horz and vert centering of a block in a relatively positioned container
+@mixin absolute-center-within-container($width:50%, $height:50%, $overflow:hidden) {
+  width: $width;
+  height: $height;
+  overflow: $overflow;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0  
+}
+
+// Borrowed from Foundation 4
+
+// This is the default html and body font-size for the base em value.
+$em-base: 16 !default;
+
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Converts "px" to "em" using the ($)em-base
+@function convert-to-em($value)  {
+  $value: strip-unit($value) / strip-unit($em-base) * 1em;
+  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+  @return $value;
+}
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#)
+// Just enter the number, no need to mention "px"
+@function emCalc($values...) {
+  $max: length($values); // Get the total number of parameters passed
+
+  // If there is only 1 parameter, then return it as an integer.
+  // This is done because a list can't be multiplied or divided even if it contains a single value
+  @if $max == 1 { @return convert-to-em(nth($values, 1)); }
+
+  $emValues: (); // This will eventually store the converted $values in a list
+  @for $i from 1 through $max {
+    $emValues: append($emValues, convert-to-em(nth($values, $i)));
+  }
+  @return $emValues;
+}

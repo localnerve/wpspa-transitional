@@ -1,0 +1,18 @@
+.sass-cache
+# output dirs
+/dist
+/report
+/snapshots
+/content/oimages
+/app/styles
+/test/fixtures/api-automated.json
+# deps with bins
+/node_modules/grunt-mocha
+/node_modules/grunt-contrib-imagemin
+/node_modules/grunt-html-snapshots
+/node_modules/html-snapshots
+/node_modules/phantomjs
+/node_modules/socket.io
+# project files
+wpspa-transitional.sublime-workspace
+wpspa-transitional.sublime-project

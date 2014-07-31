@@ -1,0 +1,17 @@
+{
+  "name": "WPSPA-Transitional-Application",
+  "version": "0.1.0",
+  "dependencies": {
+    "jquery": "1.11.0",
+    "lodash": "2.4.1",
+    "backbone": "1.1.2",
+    "backbone.marionette": "1.6.4",
+    "webshim": "1.12.7",
+    "requirejs": "2.1.11"
+  },
+  "devDependencies": {
+    "mocha": "~1.11.0",
+    "chai": "~1.7.0",    
+    "sinon": "~1.7.3"
+  }
+}

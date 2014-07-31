@@ -1,0 +1,93 @@
+#!/bin/sh
+
+NODE_ENV="production"
+NODE_APP="app.js"
+APP_USER=
+APP_DOMAIN="wpspa-transitional.com"
+MANDRILL_USERNAME=
+MANDRILL_PASSWORD=
+APP_DIR="/home/$APP_USER/$APP_DOMAIN"
+PID_FILE="/etc/$APP_DOMAIN/app.pid"
+LOG_FILE="/var/log/$APP_DOMAIN.log"
+CONFIG_DIR=$APP_DIR
+PORT=80
+NODE_EXEC="/home/$APP_USER/local/bin/node"
+
+###############
+
+# REDHAT chkconfig header
+
+# chkconfig: - 58 74
+# description: node-app is the script for starting a node app on boot.
+### BEGIN INIT INFO
+# Provides: node
+# Required-Start:    $network $remote_fs $local_fs
+# Required-Stop:     $network $remote_fs $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: start and stop node
+# Description: Node process for app
+### END INIT INFO
+
+start_app (){
+    if [ -f $PID_FILE ]
+    then
+        echo "$PID_FILE exists, process is already running or crashed"
+        exit 1
+    else
+        echo "Starting node app..."
+        PORT=$PORT NODE_ENV=$NODE_ENV APP_DIR=$APP_DIR MANDRILL_USERNAME=$MANDRILL_USERNAME MANDRILL_PASSWORD=$MANDRILL_PASSWORD NODE_CONFIG_DIR=$CONFIG_DIR $NODE_EXEC $APP_DIR/$NODE_APP  1>$LOG_FILE 2>&1 &
+        echo $! > $PID_FILE;
+    fi
+}
+
+stop_app (){
+    if [ ! -f $PID_FILE ]
+    then
+        echo "$PID_FILE does not exist, process is not running"
+        exit 1
+    else
+        echo "Stopping $APP_DIR/$NODE_APP ..."
+        echo "Killing `cat $PID_FILE`"
+        kill `cat $PID_FILE`;
+        rm -f $PID_FILE;
+        echo "Node stopped"
+    fi
+}
+
+case "$1" in
+    start)
+        start_app
+    ;;
+
+    stop)
+        stop_app
+    ;;
+
+    restart)
+        stop_app
+        start_app
+    ;;
+
+    status)
+        if [ -f $PID_FILE ]
+        then
+            PID=`cat $PID_FILE`
+            if [ -z "`ps ef | awk '{print $1}' | grep "^$PID$"`" ]
+            then
+                echo "Node app stopped but pid file exists"
+            else
+                echo "Node app running with pid $PID"
+
+            fi
+        else
+            echo "Node app stopped"
+        fi
+    ;;
+
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+    ;;
+esac
+

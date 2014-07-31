@@ -1,0 +1,32 @@
+<div class="contact-panel" id="contact-panel" name="contact-panel">
+  <div class="form-progress hide">
+    <div class="spinner"></div>
+  </div>
+  <p>
+    <%= content %>
+  </p>
+  <form id="contact-form">
+    <p class="contact-form-name">
+      <label for="form-name">
+        Name<span class="required">*</span>
+      </label>
+      <input id="form-name" name="form-name" title="Name" type="text" placeholder="Enter your name" required />
+    </p>
+    <p class="contact-form-email">
+      <label for="form-email">
+        Email<span class="required">*</span>
+      </label>
+      <input id="form-email" name="form-email" title="Email" type="email" placeholder="Enter your email address" required />
+    </p>
+    <p class="contact-form-message">
+      <label for="form-message">
+        Message<span class="required">*</span>
+      </label>
+      <textarea id="form-message" name="form-message" class="form-message" title="Message" type="textarea" placeholder="Enter your message" required  />
+    </p>
+    <p class="form-submit">
+      <input type="submit" id="contact-submit" name="contact-submit" value="Submit" />
+    </p>
+    <div id="phone"></div>
+  </form>
+</div>

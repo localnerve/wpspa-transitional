@@ -1,0 +1,12 @@
+//
+// header component styles
+//
+ 
+#navigation {
+  @include breakpoint(nav-fixed) {
+    display: none;
+  }
+}
+
+@import "showcase/styles";
+@import "navigation/styles";

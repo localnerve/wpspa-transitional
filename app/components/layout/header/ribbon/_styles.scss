@@ -1,0 +1,195 @@
+//
+// top grid
+// ----------------------------------------------------------------------
+
+.ribbon {
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 5;
+}
+
+.header-top-block.right {
+  float: right;
+}
+.header-top-block {
+  @extend %grid-half;
+   @include breakpoint(small) {
+    float: left;
+    width: percentage(0.42); // 0.44=ms(2), 0.5
+    padding: 0 ($columnGutter/2); 
+  }
+  @include clearfix();
+}
+.header-top-item {
+  float: left;
+}
+.right .header-top-item {
+  float: right;
+}
+
+%left-buffer {
+  margin-left: 10px;
+  @include breakpoint(small) {
+    margin-left: 0;
+  }  
+}
+.last-header-item {
+  @extend %left-buffer;
+}
+
+%topline-item {
+  margin-top: 5px;
+  @include breakpoint(super-small) {
+    margin: 15px auto 0 auto;
+  }  
+}
+
+//
+// top items
+// ----------------------------------------------------------------------
+
+//%top-pill-box-shadow {
+//  @include box-shadow(rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset);
+//}
+//%top-pill-box-shadow {
+//  -webkit-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
+//  -moz-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
+//  box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;  
+//}
+%top-pill-hover {
+  @include background($primary-1 !important);
+  //@extend %top-pill-box-shadow;
+  @extend %glow-box-shadow;
+}
+%top-text {
+  font : {
+    size: 24px;
+    weight: bold;
+  }
+  white-space: nowrap;
+  color: $site-black;
+  @include breakpoint(very-small-super-small) {
+    font-size: 18px;
+  }
+  @include breakpoint(extra-small) {
+    font-size: 14px;
+  }
+}
+
+.item-two, .first-text {
+  @extend %left-buffer;
+}
+.item-one {
+  &.next-text {
+    @include breakpoint(small) {
+      display: none;
+    }
+  }
+  &.first-text {
+    display: none;
+    @include breakpoint(small) {
+      display: block;
+    }
+  }
+}
+
+.icon-phone {
+  @include breakpoint($phone-button-active) {
+    color: darken($button-primary, 10%);
+  }  
+}
+.phone-button:hover {
+  color: darken($button-primary, 10%);
+}
+.phone-button {
+  display: none;
+  color: darken($button-primary, 10%);
+
+  @include breakpoint($phone-button-active) {
+    display: inline;
+    line-height: 1.6 !important;
+  }
+  @include breakpoint(super-small) {
+    line-height: 1.4 !important;
+  }
+}
+.phone-text {
+  @include breakpoint($phone-button-active) {
+    display: none;
+  }
+}
+
+.top-item {
+  @extend %topline-item;
+  @extend %top-text;
+}
+
+.text-item {
+  padding-top: 5px;
+  @include breakpoint(super-small) {
+    padding-top: 0;
+  }
+}
+
+.like-item {
+  @extend %topline-item;
+  padding-top: 7px;
+  @include breakpoint(super-small) {
+    padding-top: 0;
+  }
+}
+
+.top-pill {
+  @extend %radius-panel;  
+  @extend %topline-item;
+
+  @include background($klm-5);
+  
+  border: {
+    color: #eba104; // transparent
+    width: 1px;
+    style: solid;
+  };
+  @include box-shadow(0 1px 0 $shinyEdge inset);
+  
+  //-webkit-transition: background-color 0.3s ease-in-out;
+  @include transition-property(background-color);
+  @include transition-duration(0.3s);
+  @include transition-timing-function(ease-in-out);
+
+}
+.no-touch .top-pill:hover {
+  @extend %top-pill-hover;
+}
+.top-pill a {
+  @extend %top-text;
+  text-align: center;
+
+  padding: 5px 18px;
+  @include breakpoint(super-small) {
+    padding: 5px 8px;
+  }  
+  display: block;
+  width: 100%;
+}
+
+.social {
+  font-size: 32px;
+  margin-right: 10px;
+  @include breakpoint(very-small-super-small) {
+    font-size: 27px;
+    margin-right: 0px;
+  }
+}
+.social a {
+  @include single-text-shadow(1px, 1px, 1px, false, $site-black);
+}
+.social.facebook a {
+  color: #3c5a99;
+}
+.social.googleplus a {
+  color: #da4835;
+}
+.social.twitter a {
+  color: #28aae1;
+}

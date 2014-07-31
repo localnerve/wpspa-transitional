@@ -1,0 +1,20 @@
+.grid-col-center {
+  @extend %grid-center;
+}
+
+.retry-button {
+  @extend %submit-button;
+}
+.lt-ie9 .retry-button, .ie9 .retry-button {
+  background: $button-primary;
+}
+.no-touch .retry-button:hover, .retry-button:focus {
+  @include background($button-hover);
+}
+.no-touch .retry-button:hover, .retry-button:focus {
+  color: white;
+}
+
+.error-message {
+  margin-top: emCalc(20);
+}

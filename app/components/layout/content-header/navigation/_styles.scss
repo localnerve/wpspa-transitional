@@ -1,0 +1,36 @@
+.lt-ie9 nav .nav-bar {
+  width: $rowWidth;
+}
+
+nav .nav-bar {
+  width: 94%;
+  margin: 5px auto;
+  @include background(transparent); // klm-2
+}
+
+nav .nav-bar li a, nav .nav-bar li.active a {
+  color: $site-black;
+  font-weight: bold;
+}
+
+nav .nav-bar li a:first-child {
+  font-size: 18px;
+  padding: 0 12px;  
+}
+
+.nav-bar li.active a {
+  @include background($primary-4);
+}
+
+nav .nav-bar li {
+  border: none;
+}
+nav .nav-bar li:not(.active):hover {
+  @include background($primary-4);
+}
+.lt-ie9 .nav-bar > li:hover {
+ @include background($primary-4); 
+}
+.touch nav .nav-bar li:hover {
+  background: transparent;
+}

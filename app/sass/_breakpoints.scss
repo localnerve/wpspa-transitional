@@ -1,0 +1,49 @@
+// Breakpoints
+//
+// -------------------------
+$panel-breakpoint: super-small;
+$phone-button-active: very-small;
+
+// "large"
+$breakLargeMin: 1441px;
+
+// "medium"
+$breakMediumMin: 768px;
+$breakMediumMax: 1279px;
+$breakMediumPortraitMin: $breakMediumMin;
+$breakMediumPortraitMax: $breakMediumMax;
+$breakMediumLandscapeMin: $breakMediumMin;
+$breakMediumLandscapeMax: $breakMediumMax;
+
+// "medium-small"
+$breakMedSmallMax: 885px;
+
+// "nav-fixed"
+$breakFixedNavMax: 986px;
+// "nav-fixed-med-range: $breakSmallMax to $breakFixedNavMax"
+
+// "small"
+$breakSmallMax: 767px;
+$breakSmallPortraitMax: $breakSmallMax;
+$breakSmallLandscapeMax: $breakSmallMax;
+
+// "very-small"
+$breakVerySmallMax: 480px;
+$breakVerySmallPortraitMax: $breakVerySmallMax;
+$breakVerySmallLandscapeMax: $breakVerySmallMax;
+
+// "very-small-super-small"
+$breakVerySmallSuperSmallMax: 435px;
+
+// "super-small"
+$breakSuperSmallMax: 384px;
+$breakSuperSmallPortraitMax: $breakSuperSmallMax;
+$breakSuperSmallLandscapeMax: $breakSuperSmallMax;
+
+// "super-small-extra-small"
+$breakSuperSmallExtraSmallMax: 320px;
+
+// "extra-small"
+$breakExtraSmallMax: 240px;
+$breakExtraSmallPortraitMax: $breakExtraSmallMax;
+$breakExtraSmallLandscapeMax: $breakExtraSmallMax;

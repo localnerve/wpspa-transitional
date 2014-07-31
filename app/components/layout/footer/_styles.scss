@@ -1,0 +1,29 @@
+//
+// Footer styles
+//
+
+//
+// Footer Global Styles
+//
+%footer-text-respond {
+  @include breakpoint(small) {
+    text-align: center;
+  }
+  @include breakpoint(super-small) {
+    font-size: 12px;
+  }  
+}
+
+.site-footer {
+  color: #686758;
+  font-size: emCalc(14);
+  text-align: center;
+}
+
+.site-footer a {
+  color: #686758;
+}
+
+@import "container/styles";
+@import "siteInfo/styles";
+@import "floater/styles";

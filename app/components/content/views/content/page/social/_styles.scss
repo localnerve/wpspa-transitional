@@ -1,0 +1,24 @@
+.social-panel {
+  @extend %page-content-panel;
+  background: $site-white;
+  @include innerRow(collapse);  
+}
+.page-social .social-panel {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.item-social {
+  @include column(6);
+}
+
+.fb-like-box, .fb-like-box span, .fb-like-box span iframe[style] {
+  width: 100% !important;
+}
+
+.twitter-timeline-rendered {
+  width: 100% !important;
+  @include breakpoint(small) {
+    margin-top: 10px;
+  }  
+}

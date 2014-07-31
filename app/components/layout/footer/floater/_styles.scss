@@ -1,0 +1,37 @@
+$floater-footer-height: 40px;
+
+.floater-footer {
+  @include box-shadow(rgba($primary-3, 0.6) 0 0 15px);
+  @include background($klm-5);
+
+  height: $floater-footer-height;
+  position: fixed;
+  bottom: -($floater-footer-height + 5);
+  left: 0;
+  z-index: 40;
+  transition: bottom 0.2s ease-in-out;
+  width: 100%;
+}
+
+.floater-footer a {
+  line-height: $floater-footer-height / $baseFontSize;
+  text-align: center;
+  color: $site-black;
+  font-weight: bold;
+}
+.floater-footer a:nth-child(n+2) {
+  border-left: $site-black 1px solid;
+  padding-left: 15px;
+  margin-left: 15px;  
+}
+
+#floater-phone {
+  display: none;
+  @include breakpoint($phone-button-active) {
+    display: inline;
+  }
+}
+
+.floater-footer-show {
+  bottom: 0;
+}

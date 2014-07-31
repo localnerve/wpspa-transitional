@@ -1,0 +1,57 @@
+$logo-division: 3; // logo is one-third of the width normally
+$logo-scale-factor: 0.887;
+
+%reactive-row {  
+  @include breakpoint(medium-small) {
+    margin-bottom: 5px;
+  }  
+}
+
+.logo-container {
+  @include column($totalColumns/$logo-division);
+  @include breakpoint(extra-small) {
+    padding: 0;
+  }
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint(small) {
+    margin-bottom: 18px;
+  }
+}
+
+.logo {
+  //@extend %logo-300-small;
+  width: $logo-width-small;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  @extend %reactive-row;
+
+  @include breakpoint(nav-fixed) {
+    width: $logo-width-small * $logo-scale-factor;
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint(small) {
+    margin-top: -80px;
+  }
+
+  @include breakpoint(very-small) {
+    margin-top: -50px; 
+  }  
+}
+
+//
+// loading for slider vendor blocking
+.slider-region.spinner {
+  @include simple-spinner(120px, 60px, $mainColor, $site-black);
+  @include breakpoint(very-small) {
+    @include simple-spinner(60px, 60px, $mainColor, $site-black);
+  }
+}
+.lt-ie9 .slider-region.spinner, .ie9 .slider-region.spinner {
+  @include old-spinner(120px);  
+}
+
+@import "evidence/styles";
+@import "slider/styles";

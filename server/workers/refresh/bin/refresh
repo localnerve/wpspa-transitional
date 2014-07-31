@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# refresh
+#
+# Perform full refresh for the application
+#  NODE_ENV must be pre-defined in environment
+#
+
+# change this if you move this file
+relativeRoot=../..
+
+# worker order
+order="atf routes snapshots"
+
+cd "$(dirname "$0")"
+pushd $relativeRoot
+
+echo "starting refresh"
+for worker in $order; do
+  if [ -x $worker/bin/$worker ]; then
+    echo "running $worker/bin/$worker..."
+    $worker/bin/$worker
+    status=$?
+    echo "$worker/bin/$worker complete."
+    if [ $status -ne 0 ]; then
+      echo "$worker failed, refresh stopping..."
+      break
+    fi
+  else
+    echo "ERROR: $worker/bin/$worker not found in `pwd`"
+  fi
+done
+echo "refresh complete"
+
+popd
+cd -

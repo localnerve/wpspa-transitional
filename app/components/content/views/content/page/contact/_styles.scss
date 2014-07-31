@@ -1,0 +1,95 @@
+.contact-panel {
+  @extend %page-content-panel;
+  background: $klm-5;
+}
+
+.required {
+  color: $required;
+}
+
+.form-message {
+  max-width: 100%;
+  height: 120px;
+}
+
+.form-submit, .phone-container {
+  display: block;
+  margin-top: 25px;
+}
+
+#contact-form input[type=submit] {
+  @extend %submit-button;
+  font-size: 18px;
+}
+.no-touch #contact-form input[type=submit]:hover, .no-touch #contact-form input[type=submit]:focus {
+  @include background($button-hover);
+}
+.lt-ie9 .form-submit #contact-submit, .ie9 .form-submit #contact-submit {
+  background: $button-primary;
+}
+
+.phone-container .phone {
+  font-size: 20px;
+}
+/* .phone-container .phone-text {
+  display: none;
+}
+.phone-container .phone-button {
+  display: none;
+} */
+.phone-container a {
+  color: darken($button-primary, 10%);
+}
+
+//
+// contact result popup styles
+.reveal-modal {
+  @include background(linear-gradient($site-white, $klm-3));
+}
+.lt-ie9 .reveal-modal {
+  background: $site-white;
+}
+.reveal-modal a {
+  color: $alertColor;
+}
+.no-touch .reveal-modal a:hover {
+  color: $klm-5;
+}
+.mail-link-instructions {
+  display: block;
+  font-size: 12px !important;
+}
+.contact-result {
+  padding: 10px;
+  color: $site-white;  
+}
+#contact-result .phone-container {
+  margin: 25px;
+}
+.contact-result.failure {
+  border-color: darken($alertColor, 20%);
+  background-color: $alertColor;
+}
+.contact-result.success {
+  border-color: darken($successColor, 20%);
+  background-color: $successColor;
+}
+
+//
+// modal, spinner
+
+$contact-modal-z-base: 20;
+$contact-spinner-size-px: 60px;
+$contact-spinner-vert-px: 350px;
+.form-progress {
+  @include modal-hide($contact-modal-z-base, 0.2);
+}
+.form-progress .spinner {
+  z-index: $contact-modal-z-base + 1;
+  @include simple-spinner($contact-spinner-vert-px, $contact-spinner-size-px, $mainColor, $site-black);
+}
+.lt-ie9 .form-progress .spinner, .ie9 .form-progress .spinner {
+  z-index: $contact-modal-z-base + 1;
+  position: relative;
+  @include old-spinner($contact-spinner-vert-px, $site-white);
+}

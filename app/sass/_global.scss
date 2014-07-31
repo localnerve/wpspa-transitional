@@ -1,0 +1,78 @@
+$experimental-support-for-svg: true;
+
+$h1-font-size: emCalc(38);
+$h2-font-size: emCalc(34);
+$h3-font-size: emCalc(28);
+$h4-font-size: emCalc(24);
+$h5-font-size: emCalc(18);
+$h6-font-size: 1em;
+
+%grid-full {
+  @include column($totalColumns);
+}
+%grid-half {
+  @include column($totalColumns/2);
+  @include breakpoint(extra-small) {
+    padding: 0;
+  }
+}
+%grid-center {
+  @include column($totalColumns, center);
+}
+
+%radius-panel {
+  @include border-radius($default-border-radius);
+}
+
+%submit-button {
+  @include background(linear-gradient(180deg, $button-primary 0%, $button-secondary 100%));
+  border: none;
+  border-bottom: 3px solid $button-border;
+  border-radius: $default-border-radius;
+  color: $site-white;
+  padding: 11px 24px 10px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+%glow-box-shadow {
+  @include box-shadow(rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset);
+//  -webkit-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
+//  -moz-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
+//  box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;    
+}
+
+//.body {
+  // oldie hack
+//  *position: relative;
+//  *z-index: -1;
+//}
+
+%main-gradient {
+  @include background(linear-gradient($site-white, $klm-3, $klm-5));
+}
+
+body {
+  @extend %main-gradient;
+}
+
+h1 { font-size: $h1-font-size - emCalc(10); }
+h2 { font-size: $h2-font-size - emCalc(10); }
+h3 { font-size: $h3-font-size - emCalc(5); }
+h4 { font-size: $h4-font-size - emCalc(5); }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+.grid-row {
+  @include outerRow();
+  //@include breakpoint(small) {
+  //  padding: inherit;
+  //}
+}
+
+.main-grid-column {
+  @extend %grid-full;
+  //background: $site-white;
+  min-height: 50em;
+}
