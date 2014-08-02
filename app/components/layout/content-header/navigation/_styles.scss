@@ -1,36 +1,32 @@
-.lt-ie9 nav .nav-bar {
-  width: $rowWidth;
+//
+// Desktop navigation styles
+// (When nav appears in the content-header)
+//
+// Makes use of the old centered menu technique
+// http://matthewjamestaylor.com/blog/beautiful-css-centered-menus-no-hacks-full-cross-browser-support
+
+#navigation {
+  @include clearfix();
 }
 
-nav .nav-bar {
-  width: 94%;
-  margin: 5px auto;
-  @include background(transparent); // klm-2
+nav.on-canvas {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  position: relative;  
 }
 
-nav .nav-bar li a, nav .nav-bar li.active a {
-  color: $site-black;
-  font-weight: bold;
+nav.on-canvas .nav-bar {
+  clear: left;
+  float: left;
+  left: 50%;
+  text-align: center;
+  position: relative;
+  margin: 5px auto;  
 }
 
-nav .nav-bar li a:first-child {
-  font-size: 18px;
-  padding: 0 12px;  
-}
-
-.nav-bar li.active a {
-  @include background($primary-4);
-}
-
-nav .nav-bar li {
-  border: none;
-}
-nav .nav-bar li:not(.active):hover {
-  @include background($primary-4);
-}
-.lt-ie9 .nav-bar > li:hover {
- @include background($primary-4); 
-}
-.touch nav .nav-bar li:hover {
-  background: transparent;
+nav.on-canvas .nav-bar li {
+  float: left;
+  right: 50%;
+  position: relative;
 }

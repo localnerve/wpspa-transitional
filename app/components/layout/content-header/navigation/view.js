@@ -9,6 +9,7 @@ define([
     template: "components/layout/content-header/navigation/view",
     itemView: itemView,
     tagName: "nav",
+    className: "on-canvas",
     itemViewContainer: ".nav-bar",
     attributes: {
       role: "navigation",
