@@ -48,17 +48,8 @@
 // top items
 // ----------------------------------------------------------------------
 
-//%top-pill-box-shadow {
-//  @include box-shadow(rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset);
-//}
-//%top-pill-box-shadow {
-//  -webkit-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
-//  -moz-box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;
-//  box-shadow: rgba($primary-4, 0.8) 0 0 25px, rgba($primary-5, 0.6) 0 0 3px 1px inset !important;  
-//}
 %top-pill-hover {
-  @include background($primary-1 !important);
-  //@extend %top-pill-box-shadow;
+  @include background($button-hover !important);
   @extend %glow-box-shadow;
 }
 %top-text {
@@ -93,17 +84,12 @@
   }
 }
 
-.icon-phone {
-  @include breakpoint($phone-button-active) {
-    color: darken($button-primary, 10%);
-  }  
-}
 .phone-button:hover {
-  color: darken($button-primary, 10%);
+  color: $phone-button-color;
 }
 .phone-button {
   display: none;
-  color: darken($button-primary, 10%);
+  color: $phone-button-color;
 
   @include breakpoint($phone-button-active) {
     display: inline;
@@ -143,7 +129,7 @@
   @extend %radius-panel;  
   @extend %topline-item;
 
-  @include background($klm-5);
+  @include background($button-primary);
   
   border: {
     color: #eba104; // transparent

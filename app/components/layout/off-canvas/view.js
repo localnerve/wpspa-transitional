@@ -8,8 +8,8 @@ define([
   "components/layout/content-header/navigation/item"
 ], function(_, $, Marionette, app, routes, urls, itemView) {
 
-  var $tmp = $("<div class='js-logo-star' />").appendTo("body");
-  var starUrl = urls.getBackgroundImageUrl($tmp);
+  var $tmp = $("<div class='js-logo' />").appendTo("body");
+  var logoUrl = urls.getBackgroundImageUrl($tmp);
   $tmp.remove().empty();
 
   var OffCanvasView = Marionette.CompositeView.extend({
@@ -41,7 +41,7 @@ define([
       });
     },
     onRender: function() {
-      this.ui.logoStar.attr("src", starUrl);
+      this.ui.logoStar.attr("src", logoUrl);
 
       var self = this;
       //this.ui.navToggle.off("swipeleft").on("swipeleft", function() {

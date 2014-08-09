@@ -1,9 +1,10 @@
+@import "compass/typography/links/link-colors";
 
 .footer-container {
   @include outerRow();
 }
 .footer-area {
-  @include background($klm-2);
+  @include background($klm-dark);
   padding: emCalc(20) emCalc(20);
   text-align: left;
   @include clearfix();
@@ -12,8 +13,9 @@
     padding-right: 0;
   }
   @include breakpoint($panel-breakpoint) {
-    @include single-box-shadow(rgba($primary-3, 0.6), 0, 20px, 20px, -20px, true);
-  }  
+    @include single-box-shadow(rgba($klm-middle, 0.6), 0, 20px, 20px, -20px, true);
+  }
+  color: $site-white;
 }
 
 .contact-info {
@@ -35,7 +37,7 @@
 }
 
 .action-picture {
-  border: 2px solid black;
+  border: 2px solid $site-black;
   @extend .home-ln-action;
   @include clearfix();
 
@@ -54,6 +56,15 @@
 
 .lbiz-block {
   margin: 0px;
+}
+.lbiz-block a {
+  @include link-colors(
+    darken($site-white, 15%),
+    $site-white,
+    $site-white,
+    $site-white,
+    $site-white
+  );
 }
 .lbiz-item-block {
   display: block;

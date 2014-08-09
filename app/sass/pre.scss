@@ -1,5 +1,5 @@
 //
-// Styles that must be parsed before the js can parse (even possibly can be parsed).
+// Styles that must be parsed before the js can even possibly parse.
 //
 //
 @import "global-mixins";
@@ -7,6 +7,6 @@
 @import "logo-data";
 @import "splash";
 
-.js-logo-star, .bi-logo-star {
-  @extend %logo-star;
+.js-logo, .bi-logo {
+  @extend %logo-300-image;
 }

@@ -1,9 +1,9 @@
-$nav-star-scale: 0.60;
+$nav-logo-scale: 0.46;
 
 .nav-toggle {
-  width: $star-width * $nav-star-scale;
-  height: $star-height * $nav-star-scale;
-  margin-right: ($star-width * $nav-star-scale / 2) * -1;
+  width: $logo-width * $nav-logo-scale;
+  height: $logo-height * $nav-logo-scale;
+  margin-right: ($logo-width * $nav-logo-scale / 2) * -1;
   float: right;
   position: relative;
   z-index: $modal-z-base+1;
@@ -29,7 +29,7 @@ $menu-script-space: 10px;
   position: absolute;
   list-style: none;
 
-  // stars also have .bi-logo-star from pre.css
+  // stars also have .bi-logo from pre.css
   background-repeat: no-repeat;
 
   background-size: cover;
@@ -39,13 +39,13 @@ $menu-script-space: 10px;
   -ms-background-size: cover;
 }
 .nav-stars li:nth-child(1) {
-  width: $star-width * ($nav-star-scale/1.5);
-  height: $star-height * ($nav-star-scale/1.5);
+  width: $logo-width * ($nav-logo-scale/1.7);
+  height: $logo-height * ($nav-logo-scale/1.7);
   margin-left: 50%;
 }
 .nav-stars li:nth-child(2) {
-  width: $star-width * ($nav-star-scale/2);
-  height: $star-height * ($nav-star-scale/2);
+  width: $logo-width * ($nav-logo-scale/2.2);
+  height: $logo-height * ($nav-logo-scale/2.2);
   margin-left: 75%;
   margin-top: -20px;
 }

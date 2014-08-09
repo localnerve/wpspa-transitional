@@ -25,16 +25,16 @@
   margin: 15px auto;
   padding: 15px;
   border: {
-    color: $primary-2;
+    color: $klm-dark;
     width: 1px;
     style: solid;
   };
   @include box-shadow(0 1px 0 $shinyEdge inset);
-  @include box-shadow(rgba($primary-3, 0.6) 0 0 13px);
+  @include box-shadow(rgba($klm-middle, 0.6) 0 0 13px);
 
   @include breakpoint($panel-breakpoint) {
     border: none;
-    @include single-box-shadow(rgba($primary-3, 0.6), 0, 20px, 20px, -20px, true);
+    @include single-box-shadow(rgba($klm-middle, 0.6), 0, 20px, 20px, -20px, true);
     @include border-radius(0);
     margin: 0 auto;
   }

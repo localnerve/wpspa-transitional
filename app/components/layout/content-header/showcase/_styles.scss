@@ -30,10 +30,12 @@ $logo-scale-factor: 0.887;
   @include breakpoint(nav-fixed) {
     width: $logo-width-small * $logo-scale-factor;
     margin-bottom: 10px;
+    margin-right: 5px;
   }
 
   @include breakpoint(small) {
     margin-top: -80px;
+    margin-right: auto;
   }
 
   @include breakpoint(very-small) {

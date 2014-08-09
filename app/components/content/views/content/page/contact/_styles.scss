@@ -1,6 +1,7 @@
 .contact-panel {
   @extend %page-content-panel;
-  background: $klm-5;
+  @include background(lighten($klm-light, 10%));
+
 }
 
 .required {
@@ -25,29 +26,23 @@
   @include background($button-hover);
 }
 .lt-ie9 .form-submit #contact-submit, .ie9 .form-submit #contact-submit {
-  background: $button-primary;
+  @include background($button-primary);
 }
 
 .phone-container .phone {
   font-size: 20px;
 }
-/* .phone-container .phone-text {
-  display: none;
-}
-.phone-container .phone-button {
-  display: none;
-} */
 .phone-container a {
-  color: darken($button-primary, 10%);
+  color: $klm-alert;
 }
 
 //
 // contact result popup styles
 .reveal-modal {
-  @include background(linear-gradient($site-white, $klm-3));
+  @extend %main-gradient;
 }
 .lt-ie9 .reveal-modal {
-  background: $site-white;
+  @include background($site-white);
 }
 .reveal-modal a {
   color: $alertColor;

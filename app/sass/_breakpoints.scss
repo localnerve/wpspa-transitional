@@ -1,7 +1,11 @@
 // Breakpoints
 //
+// Desktop first with a mobile first mindset.
+// Going back to desktop first to support the older grid.
 // -------------------------
 $panel-breakpoint: super-small;
+
+// the point at which phone becomes tel: anchor
 $phone-button-active: very-small;
 
 // "large"
