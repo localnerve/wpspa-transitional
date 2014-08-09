@@ -1,5 +1,5 @@
 # WPSPA Transitional Application
-> This is a transitional web application boilerplate for the WPSPA techniques
+> A transitional web application boilerplate for the WPSPA techniques
 
 ## Background
 This app is based on [WPSPA](http://github.com/localnerve/wpspa). This transitional implementation came about because I wanted to utilize the [WPSPA](http://github.com/localnerve/wpspa) design on an older project that had to support IE8. So jQuery and old Foundation found their way back into usefulness. This also brought me back to balancing a desktop-first grid with mobile-first sensibilities.
@@ -36,7 +36,7 @@ Some of the changes:
 + Twitter
 + webshim
 
-## DIY VPS App Host \(vendor example\)
+## Notes from DIY VPS App Host \(vendor example\)
 + Setup VPS Admin User in vendor control panel
 + Setup VPS Config in vendor control panel
 + [Install Node](https://gist.github.com/isaacs/579814)
