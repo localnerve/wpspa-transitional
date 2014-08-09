@@ -1,5 +1,10 @@
 #!/bin/sh
 
+#
+# The DIY node init script for VPS
+# https://github.com/chovy/node-startup
+#
+
 NODE_ENV="production"
 NODE_APP="app.js"
 APP_USER=
