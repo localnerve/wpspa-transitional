@@ -1,6 +1,5 @@
 define([
   "jquery",
-  "underscore",
   "backbone",
   "helpers/contract",
   "helpers/backbone/sync",
@@ -9,7 +8,7 @@ define([
   "helpers/params",
   "module",
   "components/content/entities/helpers"
-], function($, _, Backbone, contract, sync, urls, types, params, module, helpers) {
+], function($, Backbone, contract, sync, urls, types, params, module, helpers) {
   var $w = window;
 
   var PageModel = Backbone.Model.extend({
