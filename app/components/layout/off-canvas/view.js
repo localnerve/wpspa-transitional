@@ -4,8 +4,9 @@ define([
   "backbone.marionette",
   "app",
   "helpers/routes",
-  "helpers/urls",
-  "components/layout/content-header/navigation/item"
+  "helpers/urls",  
+  "components/layout/content-header/navigation/item",
+  "components/layout/off-canvas/navigation-indicator/main"
 ], function(_, $, Marionette, app, routes, urls, itemView) {
 
   var $tmp = $("<div class='js-logo' />").appendTo("body");
@@ -31,6 +32,7 @@ define([
       "click .nav-toggle": "toggle"
     },
     ui: {
+      navIndicator: ".nav-indicator-area",
       logoStar: ".logo-star",
       menuScript: ".menu-script"//,
       //navToggle: ".nav-toggle"
@@ -65,7 +67,9 @@ define([
       var active = $(this.toggleAttach).hasClass(this.classAttach);
       var paused = ($(this.timerPaused).length > 0);
       
-      app.vent.trigger("nav:toggle:"+(active ? "inactive" : "active"));
+      app.vent.trigger("nav:toggle:"+(active ? "inactive" : "active"), { 
+        navIndicator: this.ui.navIndicator
+      });
 
       // currently NOT offcanvas and NOT paused, so pause right now
       if (!active && !paused) {

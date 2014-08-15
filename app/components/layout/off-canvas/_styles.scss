@@ -1,4 +1,7 @@
+@import "navigation-indicator/mixin";
+
 $nav-logo-scale: 0.46;
+$nav-button-size: 60px;
 
 .nav-toggle {
   width: $logo-width * $nav-logo-scale;
@@ -9,16 +12,19 @@ $nav-logo-scale: 0.46;
   z-index: $modal-z-base+1;
 }
 
-$menu-script-space: 10px;
-.menu-script {
-  background: url($menu-script-data) $site-white no-repeat;
-  float: right;
-  width: $menu-script-width;
-  height: $menu-script-height;
-  margin-right: ($menu-script-width + $menu-script-space) * -1;
-}
-.active-off-canvas .menu-script {
-  display: none;
+.nav-button {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+
+  width: $nav-button-size;
+  height: $nav-button-size;
+
+  border-radius: 100%;  
+  background: $klm-base;
+
+  @include single-box-shadow($klm-base, 0, 0, 1.2px, 1.2px, false);
+  @include navigation-indicator($nav-button-size * 0.85, $site-white);
 }
 
 .nav-stars {
@@ -39,8 +45,8 @@ $menu-script-space: 10px;
   -ms-background-size: cover;
 }
 .nav-stars li:nth-child(1) {
-  width: $logo-width * ($nav-logo-scale/1.7);
-  height: $logo-height * ($nav-logo-scale/1.7);
+  width: $logo-width * ($nav-logo-scale/1.8);
+  height: $logo-height * ($nav-logo-scale/1.8);
   margin-left: 50%;
 }
 .nav-stars li:nth-child(2) {
