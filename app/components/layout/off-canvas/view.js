@@ -18,10 +18,8 @@ define([
     className: "off-canvas",
 
     // places in the DOM we rely on
-    toggleAttach: "#main-region",
-    toggleModal: "#content-modal",
-    classAttach: "active-off-canvas",    
-    classModal: "hide",
+    toggleAttach: "#off-canvas",
+    classAttach: "active-off-canvas",
     timerResume: 300, //ms, transition is 250ms
     timer: ".timer",
     timerPaused: ".timer .pause.active",
@@ -38,18 +36,11 @@ define([
       //navToggle: ".nav-toggle"
     },
     initialize: function() {
-      this.listenTo(app.vent, "content:start", function(options) {
-        this.onContentStart(options);
-      });
+      this.listenTo(app.vent, "content:start", this.onContentStart);
     },
     onRender: function() {
       this.ui.logoStar.attr("src", logoUrl);
-
-      var self = this;
-      //this.ui.navToggle.off("swipeleft").on("swipeleft", function() {
-      this.$el.off("swipeleft").on("swipeleft", function() {
-        self.closeNav();
-      });
+      this.$el.off("swipeleft").on("swipeleft", this.closeNav);
     },
     onClose: function() {
       this.ui.navToggle.off("swipeleft");

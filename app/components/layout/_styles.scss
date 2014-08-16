@@ -1,65 +1,65 @@
 @import "nav";
 
 $off-canvas-width-scale: 1.65;
-$off-canvas-width-perc: 0.5;
-$off-canvas-width: percentage($off-canvas-width-perc);
+$off-canvas-width: percentage(0.5);
 
-[role="complementary"] { 
-  margin-left: -100%;
-  width: $off-canvas-width;
-  float: left;
-  position: relative;
-  z-index: $modal-z-base + 10;
-  display: none;
-  background: $site-white;
-  @include breakpoint(nav-fixed) {
-    display: block;
-  }
-}
-
-[role="main"] { 
-  margin-left: 0;
-  float: right;
-  z-index: 1;
-  position: relative;
-  display: block;
-}
-
-// the 0.25 delay is used in off-canvas view to adjust timer, TODO: dynamically get at init
+// the 0.25 delay is used in off-canvas view to adjust timer
 $transition-duration: 0.2s;
 
-[role="complementary"], [role="main"] {
-  width: 100%;
-  // make sure it has composite layer
-  //-webkit-transform: translateZ(0);
-
-  @include single-transition(margin-left, $transition-duration, linear);
-}
-[role="main"] {
-
-}
-[role="modal"] {  
-  @include modal-hide($modal-z-base, 0.0);
+[role="complementary"] {
   display: none;
-}
 
-.active-off-canvas [role="complementary"] { 
+  margin-left: -100%;
+  width: $off-canvas-width;
+  
+  position: absolute;
+
+  z-index: $modal-z-base + 10;
+  
+  background: $site-white;
+
+  @include breakpoint(nav-fixed) {
+    display: block;
+    
+    // Composite this container
+    transform: TranslateZ(0);
+  }
+
+  @include single-transition(margin-left, $transition-duration, linear);  
+}
+[role="complementary"].active-off-canvas { 
   margin-left: 0;
   width: $off-canvas-width;
+
   @include breakpoint(very-small) {
     width: $off-canvas-width * $off-canvas-width-scale;
   }
-  //background: $site-white;
 }
-.active-off-canvas [role="main"] {
-  margin-left: -$off-canvas-width;
-  @include breakpoint(very-small) {
-    margin-left: $off-canvas-width * $off-canvas-width-scale * -1;
-  }
-  overflow: hidden;
+
+[role="main"] {
+  display: block;
+
+  margin-left: 0;
+  
+  z-index: 1;
+  position: relative;
 }
-.active-off-canvas [role="modal"] {
-  opacity: 0.7;
+// ideal, but too expensive. TODO come up with a better way
+//[role="complementary"].active-off-canvas ~ [role="main"] {
+//  overflow: hidden;
+//}
+
+[role="complementary"], [role="main"] {
+  width: 100%;
+}
+
+[role="modal"] {
+  display: none;
+  transform: TranslateZ(0);
+
+  @include modal-hide($modal-z-base, 0.6);  
+}
+[role="complementary"].active-off-canvas ~ [role="main"] > [role="modal"] {
   display: block;
 }
 
