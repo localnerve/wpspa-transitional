@@ -31,9 +31,7 @@ define([
     },
     ui: {
       navIndicator: ".nav-indicator-area",
-      logoStar: ".logo-star",
-      menuScript: ".menu-script"//,
-      //navToggle: ".nav-toggle"
+      logoStar: ".logo-star"
     },
     initialize: function() {
       this.listenTo(app.vent, "content:start", this.onContentStart);
