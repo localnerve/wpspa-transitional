@@ -19,6 +19,11 @@ define([
                next();
              });
     }
+
+    $el.delay(500).queue(function(next) {
+      $el.removeClass('no-trans');
+      next();
+    });
   }
 
   app.vent.on("nav:toggle:active", handler);
