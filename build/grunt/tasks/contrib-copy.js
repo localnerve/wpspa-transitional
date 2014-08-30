@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             // other directories
             "<%= project.server %>/**",
             // *.png is covered by imagemin for release builds
-            "<%= project.images %>/foundation/**", "<%= project.images %>/ajax-loader.gif",
+            "<%= project.images %>/foundation/**", "<%= project.images %>/home/**", "<%= project.images %>/ajax-loader.gif",
             "<%= project.fonts %>/**",
             // vendor stuff
             "<%= project.vendor %>/js/modernizr/modernizr.js",
