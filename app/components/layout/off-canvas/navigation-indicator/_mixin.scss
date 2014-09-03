@@ -5,7 +5,8 @@
 //   CSS3 browser or polyfill
 //   box-sizing: border-box
 //
-@import "compass"; // for math
+@import "compass";
+@import "compass/css3";
 
 //
 // @mixin navigation-indicator
@@ -47,25 +48,25 @@
       
       border-radius: $hamburger-line-height;
       background: $color;
-      transition: all 300ms ease-out 100ms;
+      @include transition(all 300ms ease-out 100ms);
       
       &:first-child {      
         top: $size / 3 / 2;
 
-        transform-origin: center ($size / 3);
+        @include transform-origin(center, ($size / 3));
       }
       
       &:nth-child(2) {
         top: 50%;
         margin-top: -( round($hamburger-line-height / 2) ); // should round?
 
-        transform-origin: center center;
+        @include transform-origin(center, center);
       }
        
       &:last-child {      
         bottom: $size / 3 / 2;
 
-        transform-origin: center ($size / -5);
+        @include transform-origin(center, ($size / -5));
       }
     }
         
@@ -83,7 +84,7 @@
           // arrow size area minus 88% of the hamburger line width
           left: $size - ($hamburger-line-width * 0.88);
 
-          transform: rotate(#{(180+$arrow-angle)}deg);
+          @include transform(rotate(#{(180+$arrow-angle)}deg));
         }
         &:nth-child(2) {
           // 88% of the hamburger line width
@@ -92,7 +93,7 @@
           left: ($size - ($hamburger-line-width * 0.88)) - (($hamburger-line-height * cos($arrow-angle-rad)) / 2);
 
           // flip
-          transform: rotate(180deg);
+          @include transform(rotate(180deg));
         }
         &:last-child {
           // 70% of hamburger line width
@@ -102,7 +103,7 @@
           // arrow size area minus 88% of the hamburger line width
           left: $size - ($hamburger-line-width * 0.88);
 
-          transform: rotate(#{(180-$arrow-angle)}deg);
+          @include transform(rotate(#{(180-$arrow-angle)}deg));
         }
       }
     }
@@ -110,20 +111,20 @@
     &.out {
       .icon-line {
         &:first-child { 
-          transform: rotate(360deg);
+          @include transform(rotate(360deg));
         }
         &:nth-child(2) {
-          transform: rotate(360deg);
+          @include transform(rotate(360deg));
         }
         &:last-child {
-          transform: rotate(360deg);
+          @include transform(rotate(360deg));
         }
       }
     }
     
     &.no-trans {
       .icon-line {
-        transition: none;
+        @include transition(none);
       }
     }
   }

@@ -22,7 +22,7 @@ $transition-duration: 0.2s;
     display: block;
     
     // Composite this container
-    transform: TranslateZ(0);
+    @include transform(TranslateZ(0));
   }
 
   @include single-transition(margin-left, $transition-duration, linear);  
@@ -55,7 +55,7 @@ $transition-duration: 0.2s;
 
 [role="modal"] {
   display: none;
-  transform: TranslateZ(0);
+  @include transform(TranslateZ(0));
 
   @include modal-hide($modal-z-base, 0.6);  
 }
