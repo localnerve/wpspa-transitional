@@ -11,6 +11,8 @@
 #       git init
 #       git remote add heroku git@heroku.com:<APPNAME>.git
 #
+# the heroku hostname for the app as configured in the control panel
+herokuAppHostname="wpspa-transitional.herokuapp.com"
 
 # the source directory of the release distribution
 src=/home/agrant/var/www/content/wpspa-transitional/dist/release
@@ -54,8 +56,10 @@ if [ $? -eq 0 ]; then
               git add --all
               git commit -m "$message"
               
+              # make sure heroku environment is setup properly
               heroku config:set NODE_ENV=production
               heroku config:set APP_DIR=.
+              heroku config:set APP_HOSTNAME=$herokuAppHostname
 
               git push heroku master
               heroku open

@@ -16,7 +16,7 @@ util.inherits(Config, Release);
 // Define the app host as the name for the cloud env router
 // The application info
 Config.prototype.app = {
-  hostname: "wpspa-transitional.com",
+  hostname: process.env.APP_HOSTNAME,
   port: undefined // must be defined by the real host environment
 };
 
