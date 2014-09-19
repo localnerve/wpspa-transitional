@@ -38,7 +38,7 @@ define([
     },
     onRender: function() {
       this.ui.logoStar.attr("src", logoUrl);
-      this.$el.off("swipeleft").on("swipeleft", this.closeNav);
+      this.$el.off("swipeleft").on("swipeleft", _.bind(this.closeNav, this));
     },
     onClose: function() {
       this.ui.navToggle.off("swipeleft");
