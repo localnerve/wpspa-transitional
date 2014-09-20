@@ -59,6 +59,8 @@ if [ $? -eq 0 ]; then
               # make sure heroku environment is setup properly
               heroku config:set NODE_ENV=production
               heroku config:set APP_DIR=.
+              heroku config:set APP_MAINT_FLAG=0
+              heroku config:set APP_MAINT_RETRYAFTER=14400
               heroku config:set APP_HOSTNAME=$herokuAppHostname
 
               git push heroku master

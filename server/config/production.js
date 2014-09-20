@@ -28,7 +28,7 @@ Config.prototype.staticBase = process.env.APP_DIR;
 // Define the far-future expiry of statics (in milliseconds)
 Config.prototype.staticAge = 31556926000; // one year
 
-//Config.prototype.maintenance = true;
-//Config.prototype.maintenanceHeaders["Retry-After"] = 14400;
+Config.prototype.maintenance = process.env.APP_MAINT_FLAG;
+Config.prototype.maintenanceHeaders["Retry-After"] = process.env.APP_MAINT_RETRYAFTER;
 
 module.exports = Config;
