@@ -33,6 +33,7 @@ $nav-button-size: 60px;
 }
 .nav-stars li {
   position: absolute;
+  z-index: 1;
   list-style: none;
 
   // stars also have .bi-logo from pre.css
@@ -48,18 +49,20 @@ $nav-button-size: 60px;
   width: $logo-width * ($nav-logo-scale/1.8);
   height: $logo-height * ($nav-logo-scale/1.8);
   margin-left: 50%;
+  margin-top: 16px;
 }
 .nav-stars li:nth-child(2) {
   width: $logo-width * ($nav-logo-scale/2.2);
   height: $logo-height * ($nav-logo-scale/2.2);
   margin-left: 75%;
-  margin-top: -20px;
+  margin-top: 40px;
 }
 
 //
 // vertical nav specializations
 
 .nav-container {
+  padding-top: 17px;
   padding-bottom: 17px;
 }
 
@@ -68,6 +71,10 @@ $nav-button-size: 60px;
   margin: 5px auto;
 }
 
+.nav-container .nav-bar.vertical > li:hover {
+  // vendor override
+  background: none;
+}
 .nav-container .nav-bar.vertical > li {
   // vendor override
   border-right: none;  
