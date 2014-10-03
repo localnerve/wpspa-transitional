@@ -48,6 +48,10 @@ $transition-duration: 0.2s;
 //[role="complementary"].active-off-canvas ~ [role="main"] {
 //  overflow: hidden;
 //}
+// better: https://github.com/localnerve/wpspa-transitional/issues/5
+[role="complementary"].active-off-canvas + [role="main"] .showcase {
+  overflow-y: hidden;
+}
 
 [role="complementary"], [role="main"] {
   width: 100%;
