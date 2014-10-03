@@ -59,7 +59,10 @@ $transition-duration: 0.2s;
 
   @include modal-hide($modal-z-base, 0.6);  
 }
-[role="complementary"].active-off-canvas ~ [role="main"] > [role="modal"] {
+// using adjacent instead of general sibling.
+// older phone browser bugs prevent general from working
+//   https://github.com/localnerve/wpspa-transitional/issues/4
+[role="complementary"].active-off-canvas + [role="main"] > [role="modal"] {
   display: block;
 }
 
