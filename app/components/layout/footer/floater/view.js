@@ -1,10 +1,11 @@
 define([
-  "jquery",  
+  "jquery",
+  "underscore",
   "backbone.marionette",
   "app",
   "helpers/ui",
   "components/layout/footer/floater/scroll"
-], function($, Marionette, app, ui, scroll) {
+], function($, _, Marionette, app, ui, scroll) {
 
   var FloaterView = Marionette.ItemView.extend({
     className: "floater-footer",
@@ -28,7 +29,7 @@ define([
     contact: function() {
       var formName = $("#form-name");
       if (formName.length > 0) {
-        formName.focus();
+        _.defer(function(name){ name.focus(); }, formName);
       }
     }
   });
