@@ -1,17 +1,12 @@
 define([
-  "jquery",
   "backbone",
   "backbone.marionette",
   "app",
-  "helpers/urls",
+  "helpers/logo",
   "components/content/entities/helpers",
   "components/layout/content-header/showcase/evidence/view",
   "components/layout/content-header/showcase/slider/view"
-], function($, Backbone, Marionette, app, urls, helpers, evidenceView, sliderView) {
-
-  var $tmp = $("<div class='js-splash-logo' />").appendTo("body");
-  var logoUrl = urls.getBackgroundImageUrl($tmp);
-  $tmp.remove().empty();
+], function(Backbone, Marionette, app, logo, helpers, evidenceView, sliderView) {
 
   var ShowcaseLayout = Marionette.Layout.extend({
     template: "components/layout/content-header/showcase/view",
@@ -30,7 +25,7 @@ define([
       });
     },
     onRender: function() {      
-      this.ui.logo.attr("src", logoUrl);
+      this.ui.logo.attr("src", logo.logoUrl);
     },
     onContentSuccess: function(options) {
       this.evidence.show(evidenceView.create({

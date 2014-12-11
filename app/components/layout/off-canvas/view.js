@@ -4,14 +4,10 @@ define([
   "backbone.marionette",
   "app",
   "helpers/routes",
-  "helpers/urls",  
+  "helpers/logo",
   "components/layout/content-header/navigation/item",
   "components/layout/off-canvas/navigation-indicator/main"
-], function(_, $, Marionette, app, routes, urls, itemView) {
-
-  var $tmp = $("<div class='js-logo' />").appendTo("body");
-  var logoUrl = urls.getBackgroundImageUrl($tmp);
-  $tmp.remove().empty();
+], function(_, $, Marionette, app, routes, logo, itemView) {
 
   var OffCanvasView = Marionette.CompositeView.extend({
     template: "components/layout/off-canvas/view",
@@ -37,7 +33,7 @@ define([
       this.listenTo(app.vent, "content:start", this.onContentStart);
     },
     onRender: function() {
-      this.ui.logoStar.attr("src", logoUrl);
+      this.ui.logoStar.attr("src", logo.logoUrl);
       this.$el.off("swipeleft").on("swipeleft", _.bind(this.closeNav, this));
     },
     onClose: function() {
