@@ -33,7 +33,10 @@ define([
       this.listenTo(app.vent, "content:start", this.onContentStart);
     },
     onRender: function() {
-      this.ui.logoStar.attr("src", logo.logoUrl);
+      var self = this;
+      logo.getLogoUrl(function(logoUrl) {
+        self.ui.logoStar.attr("src", logoUrl);
+      });
       this.$el.off("swipeleft").on("swipeleft", _.bind(this.closeNav, this));
     },
     onClose: function() {

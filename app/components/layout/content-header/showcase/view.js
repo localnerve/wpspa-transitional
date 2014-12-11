@@ -24,8 +24,11 @@ define([
         self.onContentSuccess(options);
       });
     },
-    onRender: function() {      
-      this.ui.logo.attr("src", logo.logoUrl);
+    onRender: function() {
+      var self = this;
+      logo.getLogoUrl(function(logoUrl) {
+        self.ui.logo.attr("src", logoUrl);
+      });
     },
     onContentSuccess: function(options) {
       this.evidence.show(evidenceView.create({
